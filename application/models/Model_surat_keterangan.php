@@ -37,9 +37,9 @@ class Model_surat_keterangan extends CI_Model {
                 'dt' => 4,
                 'formatter' => function ($d) {
                     return "<center>
-                    <a class='btn-sm btn-success' data-toggle='modal' data-target='#show_detail' data-id=".$d."><i class='fas fa-search'></i></a>                    
-                    <a class='btn-sm btn-info' href=".base_url('index.php/surat_keterangan/edit/'.$d)."><i class='fas fa-edit'></i></a>
-                    <a class='btn-sm btn-danger' data-toggle='modal' data-target='#hapus_surat_keterangan' data-href=".base_url('index.php/surat_keterangan/hapus/'.$d)."><i class='fas fa-trash'></i></a>
+                    <a class='btn btn-sm btn-success' data-toggle='modal' data-target='#show_detail' data-id=".$d."><i class='fas fa-search'></i></a>                    
+                    <a class='btn btn-sm btn-info' href=".base_url('index.php/surat_keterangan/edit/'.$d)."><i class='fas fa-edit'></i></a>
+                    <a class='btn btn-sm btn-danger' data-toggle='modal' data-target='#hapus_surat_keterangan' data-href=".base_url('index.php/surat_keterangan/hapus/'.$d)."><i class='fas fa-trash'></i></a>
                     </center>";
                 }
             )

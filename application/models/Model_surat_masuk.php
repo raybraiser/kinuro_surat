@@ -28,19 +28,6 @@ class Model_surat_masuk extends CI_Model {
 
 
         $columns = array(
-            /*
-		    array(
-                'db' => 'lirik_id',
-                'dt' => 0,
-                'formatter' => function ($d) {
-                    return "<center>
-                    <a class='btn-sm btn-success' data-toggle='modal' data-target='#show_detail' data-id=".$d."><i class='fas fa-search'></i></a>                    
-                    <a class='btn-sm btn-info' href=".base_url('index.php/lirik/edit/'.$d)."><i class='fas fa-edit'></i></a>
-                    <a class='btn-sm btn-danger' data-toggle='modal' data-target='#delete_confirm' data-href=".base_url('index.php/lirik/hapus/'.$d)."><i class='fas fa-trash'></i></a>
-                    </center>";
-                }
-            ),
-            */
             array( 'db' => 'sm_tanggal_masuk', 'dt' => 0 ),            
             array( 'db' => 'sm_dari', 'dt' => 1 ),
             array( 'db' => 'sm_untuk', 'dt' => 2 ),
@@ -51,9 +38,9 @@ class Model_surat_masuk extends CI_Model {
                 'dt' => 5,
                 'formatter' => function ($d) {
                     return "<center>
-                    <a class='btn-sm btn-success' data-toggle='modal' data-target='#show_detail' data-id=".$d."><i class='fas fa-search'></i></a>                    
-                    <a class='btn-sm btn-info' href=".base_url('index.php/surat_masuk/edit/'.$d)."><i class='fas fa-edit'></i></a>
-                    <a class='btn-sm btn-danger' data-toggle='modal' data-target='#hapus_surat_masuk' data-href=".base_url('index.php/surat_masuk/hapus/'.$d)."><i class='fas fa-trash'></i></a>
+                    <a class='btn btn-sm btn-success' data-toggle='modal' data-target='#show_detail' data-id=".$d."><i class='fas fa-search'></i></a>                    
+                    <a class='btn btn-sm btn-info' href=".base_url('index.php/surat_masuk/edit/'.$d)."><i class='fas fa-edit'></i></a>
+                    <a class='btn btn-sm btn-danger' data-toggle='modal' data-target='#hapus_surat_masuk' data-href=".base_url('index.php/surat_masuk/hapus/'.$d)."><i class='fas fa-trash'></i></a>
                     </center>";
                 }
             )

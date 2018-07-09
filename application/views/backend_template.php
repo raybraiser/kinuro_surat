@@ -17,39 +17,36 @@
 
     <title><?php echo $title; ?></title>
 
-
-
-
     <!-- Bootstrap Core CSS -->
-    <link href="http://asset.tondanoweb.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url("asset/bootstrap/css/bootstrap.min.css"); ?>" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="http://asset.tondanoweb.com/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="<?php echo base_url("asset/metisMenu/metisMenu.min.css"); ?>" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="http://asset.tondanoweb.com/css/dashboard.css" rel="stylesheet">
-    <link href="http://asset.tondanoweb.com/css/img_with_button.css" rel="stylesheet">
+    <link href="<?php echo base_url("asset/css/dashboard.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("asset/css/img_with_button.css"); ?>" rel="stylesheet">
 
     <!-- jQuery -->
-    <script type="text/javascript" src="http://asset.tondanoweb.com/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url("asset/jquery/jquery-3.2.1.min.js"); ?>"></script>
 
     <!-- Bootstrap Core CSS -->
-    <link href="http://asset.tondanoweb.com/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="<?php echo base_url("asset/jquery-ui/jquery-ui.min.css"); ?>" rel="stylesheet">
 
     <!-- jQuery UI -->
-    <script type="text/javascript" src="http://asset.tondanoweb.com/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url("asset/jquery-ui/jquery-ui.min.js"); ?>"></script>
 
     <!-- DataTables JavaScript -->
-    <script type="text/javascript" src="http://asset.tondanoweb.com/DataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url("asset/DataTables/jquery.dataTables.min.js"); ?>"></script>
 
     <!-- DataTables Bootstrap JavaScript -->
-    <script type="text/javascript" src="http://asset.tondanoweb.com/DataTables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url("asset/DataTables/dataTables.bootstrap.min.js"); ?>"></script>
 
     <!-- Datatables CSS -->
-    <link href="http://asset.tondanoweb.com/DataTables/dataTables.bootstrap.min.css" rel="stylesheet">   
+    <link href="<?php echo base_url("asset/DataTables/dataTables.bootstrap.min.css"); ?>" rel="stylesheet">   
 
     <!-- Sweetalert -->
-    <script type="text/javascript" src="http://asset.tondanoweb.com/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url("asset/sweetalert/sweetalert.min.js"); ?>"></script>
 
 </head>
 
@@ -143,16 +140,16 @@
     </div>
 
     <!-- Bootstrap Core JavaScript -->
-    <script type="text/javascript" src="http://asset.tondanoweb.com/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url("asset/bootstrap/js/bootstrap.min.js"); ?>"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script type="text/javascript" src="http://asset.tondanoweb.com/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url("asset/metisMenu/metisMenu.min.js"); ?>"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script type="text/javascript" src="http://asset.tondanoweb.com/js/dashboard.js"></script>
+    <script type="text/javascript" src="<?php echo base_url("asset/js/dashboard.js"); ?>"></script>
 
     <!-- Custom Fonts -->
-    <script type="text/javascript" src="http://asset.tondanoweb.com/fontawesome/svg-with-js/js/fontawesome-all.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url("asset/fontawesome/svg-with-js/js/fontawesome-all.min.js"); ?>"></script>
 
 </body>
 

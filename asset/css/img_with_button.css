@@ -1,0 +1,19 @@
+.img_with_button {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+}
+
+.img_with_button img {
+    width: 100%;
+    height: auto;
+}
+
+.img_with_button .button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}

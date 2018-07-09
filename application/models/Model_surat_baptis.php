@@ -36,9 +36,9 @@ class Model_surat_baptis extends CI_Model {
                 'dt' => 3,
                 'formatter' => function ($d) {
                     return "<center>
-                    <a class='btn-sm btn-success' data-toggle='modal' data-target='#show_detail' data-id=".$d."><i class='fas fa-search'></i></a>                    
-                    <a class='btn-sm btn-info' href=".base_url('index.php/surat_baptis/edit/'.$d)."><i class='fas fa-edit'></i></a>
-                    <a class='btn-sm btn-danger' data-toggle='modal' data-target='#hapus_surat_baptis' data-href=".base_url('index.php/surat_baptis/hapus/'.$d)."><i class='fas fa-trash'></i></a>
+                    <a class='btn btn-sm btn-success' data-toggle='modal' data-target='#show_detail' data-id=".$d."><i class='fas fa-search'></i></a>                    
+                    <a class='btn btn-sm btn-info' href=".base_url('index.php/surat_baptis/edit/'.$d)."><i class='fas fa-edit'></i></a>
+                    <a class='btn btn-sm btn-danger' data-toggle='modal' data-target='#hapus_surat_baptis' data-href=".base_url('index.php/surat_baptis/hapus/'.$d)."><i class='fas fa-trash'></i></a>
                     </center>";
                 }
             )

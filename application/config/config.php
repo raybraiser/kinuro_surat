@@ -25,6 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = 'http://localhost/project/kinuro_surat/';
 
+$config["upload_url"] = "/var/www/html/project/kinuro_surat/img/";
+
 /*
 |--------------------------------------------------------------------------
 | Index File

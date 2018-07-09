@@ -24,9 +24,10 @@ class Surat_sidi extends CI_Controller {
     {
         $simpan = $this->input->post('tombol_simpan');
         if (isset($simpan)) {
+            $upload_url = $this->config->item("upload_url");
             $waktu_gambar = date("dmYhis"); 
             $nama_gambar = 'surat_sidi_'.$waktu_gambar;
-            $config['upload_path']          = '/var/www/html/project/kinuro_surat/img/';
+            $config['upload_path']          = $upload_url;
             $config['allowed_types']        = 'gif|jpg|png';
             $config['file_name']            = $nama_gambar;
             $this->load->library('upload', $config);
@@ -163,9 +164,10 @@ class Surat_sidi extends CI_Controller {
     {
         $simpan = $this->input->post('tombol_simpan');
         if (isset($simpan)) {
+            $upload_url = $this->config->item("upload_url");
             $waktu_gambar = date("dmYhis"); 
             $nama_gambar = 'surat_sidi_'.$waktu_gambar;
-            $config['upload_path']          = '/var/www/html/project/kinuro_surat/img/';
+            $config['upload_path']          = $upload_url;
             $config['allowed_types']        = 'gif|jpg|png';
             $config['file_name']            = $nama_gambar;
             $this->load->library('upload', $config);

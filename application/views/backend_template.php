@@ -116,7 +116,13 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="<?php echo base_url('index.php/pengaturan') ?>"><i class="fas fa-cog"></i> Pengaturan</a>
+                            <a href="#"><i class="fas fa-cogs"></i> Pengaturan</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url('index.php/admin'); ?>"><i class="fas fa-user"></i> Admin</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="<?php echo base_url('index.php/login/logout'); ?>"><i class="fas fa-power-off"></i> Logout</a>

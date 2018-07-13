@@ -23,6 +23,12 @@
     }
     $this->session->mark_as_temp('status_query_admin_hapus', 1);
 
+    $status_session = $this->session->status_query_operasi;
+    if ($status_session == 'gagal') {
+        echo '<script>swal("Error !", "Maaf, anda tidak diijinkan melakukan operasi ini!", "error");</script>';
+    }
+    $this->session->mark_as_temp('status_query_operasi', 1);
+
 
 ?>
 

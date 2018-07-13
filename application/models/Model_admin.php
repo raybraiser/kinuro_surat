@@ -131,28 +131,19 @@ class Model_admin extends CI_Model {
         if (!$id) {
 			redirect(base_url("index.php/admin"));            
         } else {
-            $sql = "SELECT * FROM tbl_admin WHERE admin_id = ?";
-            $query = $this->db->query($sql, array($id));
-            foreach ($query->result() as $cek_data) {
-                $as = $cek_data->admin_status;
-                if ($as == 1) {
-                    $query = $this->db->delete('tbl_admin', array('admin_id' => $id));
-                    if ($query) {
-                        $query_status = array(
-                            'status_query_admin_hapus' => 'sukses',		
-                        );
-                        $this->session->set_userdata($query_status);
-                        redirect(base_url("index.php/admin"));
-                    } else {
-                        $query_status = array(
-                            'status_query_admin_hapus' => 'gagal',										
-                        );
-                        $this->session->set_userdata($query_status);
-                        redirect(base_url("index.php/admin"));
-                    }
-                } else {
-                    redirect(base_url("index.php/admin"));
-                }
+            $query = $this->db->delete('tbl_admin', array('admin_id' => $id));
+            if ($query) {
+                $query_status = array(
+                    'status_query_admin_hapus' => 'sukses',		
+                );
+                $this->session->set_userdata($query_status);
+                redirect(base_url("index.php/admin"));
+            } else {
+                $query_status = array(
+                    'status_query_admin_hapus' => 'gagal',										
+                );
+                $this->session->set_userdata($query_status);
+                redirect(base_url("index.php/admin"));
             }
         }
     }

@@ -86,8 +86,25 @@ class Admin extends CI_Controller {
     {
         $id = $this->uri->segment(3);
         $sess_id = $this->session->admin_id;
-        if ($sess_id == $id) {
-            redirect(base_url("index.php/admin"));            
+        $status_admin = $this->session->admin_status;
+        if ($id == $sess_id) {
+            $query_status = array(
+				'status_query_operasi' => 'gagal',		
+            );
+            $this->session->set_userdata($query_status);
+            redirect(base_url("index.php/admin"));
+        } elseif ($status_admin == 2) {
+            $query_status = array(
+				'status_query_operasi' => 'gagal',		
+            );
+            $this->session->set_userdata($query_status);
+            redirect(base_url("index.php/admin"));
+        } elseif ($id == $sess_id && $status_admin == 2) {
+            $query_status = array(
+				'status_query_operasi' => 'gagal',		
+            );
+            $this->session->set_userdata($query_status);
+            redirect(base_url("index.php/admin"));
         } else {
             $this->Model_admin->hapus($id);
         }

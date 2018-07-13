@@ -34,6 +34,7 @@ class Login extends CI_Controller {
 				'admin_id' => $data_user['admin_id'],				
 				'admin_nama_lengkap' => $data_user['admin_nama_lengkap'],
 				'admin_username' => $data_user['admin_username'],
+				'admin_status' => $data_user['admin_status'],
 				'status' => "login"
 			);
 			

@@ -49,7 +49,18 @@ class Surat_masuk extends CI_Controller {
             }
             else
             {
+                $config = array();
                 $data = array('upload_data' => $this->upload->data());
+                $config['image_library']    = 'gd2';
+                $config['source_image']     = $upload_url . $data['upload_data']['file_name'];;
+                $config['maintain_ratio']   = TRUE;
+                $config['width']            = 500;
+                $config['height']           = 500;
+                $config['new_image']        = $upload_url . $data['upload_data']['file_name'];
+                
+                $this->load->library('image_lib', $config);
+                $hasil = $this->image_lib->resize();
+
                 foreach ($data as $baris) {
                     $data = array   (
                         'sm_dari' => $this->input->post('surat_masuk_dari'), 
@@ -59,7 +70,7 @@ class Surat_masuk extends CI_Controller {
                         'sm_perihal' => $this->input->post('surat_masuk_perihal'), 
                         'sm_tanggal_masuk' => $this->input->post('surat_masuk_tanggal_masuk'), 
                         'sm_deskripsi' => $this->input->post('surat_masuk_deskripsi'), 
-                        'sm_link' => base_url() . 'img/' . $baris['file_name'], 
+                        'sm_link' => base_url() . 'img/' . $baris['file_name'] 
                     );
                     $this->Model_surat_masuk->simpan($data);
                 }            
@@ -96,10 +107,13 @@ class Surat_masuk extends CI_Controller {
             $upload_url = $this->config->item("upload_url");
             $waktu_gambar = date("dmYhis"); 
             $nama_gambar = 'surat_masuk_'.$waktu_gambar;
+            $config['image_library']        = 'gd2';
             $config['upload_path']          = $upload_url;
             $config['allowed_types']        = 'gif|jpg|png';
             $config['file_name']            = $nama_gambar;
+            $config['quality']              = 50;
             $this->load->library('upload', $config);
+            $this->image_lib->resize();
             if (!$this->upload->do_upload('upload_file'))
             {
                 $data = array   (

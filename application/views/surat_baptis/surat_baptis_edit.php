@@ -85,8 +85,8 @@
             </div>
 
             <div class="form-group">
-                <label>Upload / Foto Surat :</label>
-                <input class="form-control" type="file" capture="camera" accept="image/*" name="upload_file" size="20">      
+                <label>Foto / Upload Surat :</label>
+                <input class="form-control" type="file" accept="image/*" name="upload_file" size="20">      
             </div>
 
             <div class="row">

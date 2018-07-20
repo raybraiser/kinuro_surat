@@ -79,10 +79,10 @@
               <input type="text" class="form-control" name="surat_sidi_oleh"  value="<?php echo $baris_data_surat_sidi->sk_sidi_yang_meneguhkan; ?>" placeholder="Di Sidi Oleh" required="required">
           </div>
 
-          <div class="form-group">
-              <label>Upload / Foto Surat :</label>
-              <input class="form-control" type="file" capture="camera" accept="image/*" name="upload_file" size="20">      
-          </div>
+            <div class="form-group">
+                <label>Foto / Upload Surat :</label>
+                <input class="form-control" type="file" accept="image/*" name="upload_file" size="20">      
+            </div>
 
             <div class="row">
                 <div class="col-md-6">

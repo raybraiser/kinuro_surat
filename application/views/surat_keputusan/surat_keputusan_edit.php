@@ -87,8 +87,8 @@ foreach ($data_keputusan->result() as $baris_data_keputusan) { ?>
             </div>
 
             <div class="form-group">
-                <label>Upload / Foto Surat :</label>
-                <input class="form-control" type="file" capture="camera" accept="image/*" name="upload_file" size="20">      
+                <label>Foto / Upload Surat :</label>
+                <input class="form-control" type="file" accept="image/*" name="upload_file" size="20">      
             </div>
 
             <a href="<?php echo base_url('index.php/surat_keputusan'); ?>" class="btn btn-danger" ><i class="fas fa-reply"></i> Batal</a>

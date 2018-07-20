@@ -1,3 +1,10 @@
+<?php
+    $status_login = $this->session->status;
+    if ($status_login == 'login') {
+        redirect(base_url("index.php/dashboard"));
+    }
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">

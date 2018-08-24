@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 10, 2018 at 01:05 AM
+-- Generation Time: Aug 25, 2018 at 12:03 AM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.0.25-0ubuntu0.16.04.1
 
@@ -39,7 +39,31 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `admin_nama_lengkap`, `admin_username`, `admin_password`, `admin_status`) VALUES
-(1, 'Braiser Pangemanan', 'braiser', 'e67331aa84b19b5f4781392721d08183', 1);
+(9, 'Braiser Pangemanan', 'braiser', 'e67331aa84b19b5f4781392721d08183', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_pendeta`
+--
+
+CREATE TABLE `tbl_pendeta` (
+  `id_pendeta` int(10) NOT NULL,
+  `nama_pendeta` varchar(200) NOT NULL,
+  `jabatan` varchar(200) NOT NULL,
+  `periode_pelayanan_mulai` varchar(200) NOT NULL,
+  `periode_pelayanan_akhir` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_pendeta`
+--
+
+INSERT INTO `tbl_pendeta` (`id_pendeta`, `nama_pendeta`, `jabatan`, `periode_pelayanan_mulai`, `periode_pelayanan_akhir`) VALUES
+(1, 'Pdt. Novy Jacobies Pattinama, S.Th ', 'Ketua Jemaat', '2010', '2015'),
+(2, 'Pdt. Asthiny Corry Lintong, S.Th', 'Guru Agama', '2016', 'Sekarang'),
+(3, 'Pdt. Joula Sumigar, S.Th', 'Pendeta Pelayanan', '', ''),
+(6, 'Pdt. Robby Imon, S.Th', 'Ketua Jemaat', '2001', '2005');
 
 -- --------------------------------------------------------
 
@@ -166,6 +190,12 @@ ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
+-- Indexes for table `tbl_pendeta`
+--
+ALTER TABLE `tbl_pendeta`
+  ADD PRIMARY KEY (`id_pendeta`);
+
+--
 -- Indexes for table `tbl_surat_keluar_baptis`
 --
 ALTER TABLE `tbl_surat_keluar_baptis`
@@ -209,37 +239,42 @@ ALTER TABLE `tbl_surat_masuk`
 -- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `admin_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `admin_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `tbl_pendeta`
+--
+ALTER TABLE `tbl_pendeta`
+  MODIFY `id_pendeta` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_surat_keluar_baptis`
 --
 ALTER TABLE `tbl_surat_keluar_baptis`
-  MODIFY `sk_baptis_id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `sk_baptis_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_surat_keluar_nikah`
 --
 ALTER TABLE `tbl_surat_keluar_nikah`
-  MODIFY `sk_menikah_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sk_menikah_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_surat_keluar_sidi`
 --
 ALTER TABLE `tbl_surat_keluar_sidi`
-  MODIFY `sk_sidi_id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `sk_sidi_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT for table `tbl_surat_keputusan`
 --
 ALTER TABLE `tbl_surat_keputusan`
-  MODIFY `keputusan_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `keputusan_id` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_surat_keterangan`
 --
 ALTER TABLE `tbl_surat_keterangan`
-  MODIFY `sk_keterangan_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sk_keterangan_id` int(50) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_surat_masuk`
 --
 ALTER TABLE `tbl_surat_masuk`
-  MODIFY `sm_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sm_id` int(50) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

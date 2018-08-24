@@ -59,7 +59,16 @@
 
             <div class="form-group">
                 <label>Di Sidi Oleh :</label>
-                <input type="text" class="form-control" name="surat_sidi_oleh" placeholder="Di Sidi Oleh" required="required">
+                <select class="form-control" name="surat_sidi_oleh">
+                    <?php
+
+                        foreach ($pendeta->result() as $baris) {
+                            echo '<option value="'.$baris->nama_pendeta.'" >'.$baris->nama_pendeta.'</option>';
+                        }
+
+                    ?>
+                    
+                </select>
             </div>
 
             <div class="form-group">

@@ -81,7 +81,17 @@
 
             <div class="form-group">
                 <label>Dibaptis Oleh :</label>
-                <input type="text" class="form-control" name="surat_baptis_oleh" value="<?php echo $baris_data_surat_baptis->sk_baptis_yang_membaptis;  ?>" placeholder="Dibaptis Oleh" required="required">
+                <select class="form-control" name="surat_baptis_oleh">
+                    <?php
+                        foreach ($pendeta->result() as $baris_pendeta) {
+                            if ($baris_data_surat_nikah->sk_baptis_yang_membaptis == $baris_pendeta->nama_pendeta)
+                            echo '<option value="'.$baris_pendeta->nama_pendeta.'" selected>'.$baris_pendeta->nama_pendeta.'</option>';
+                                else
+                            echo '<option value="'.$baris_pendeta->nama_pendeta.'">'.$baris_pendeta->nama_pendeta.'</option>';
+                        }
+                    ?>
+                  </select>
+
             </div>
 
             <div class="form-group">
@@ -94,7 +104,7 @@
                     <?php
                         if ($baris_data_surat_baptis->sk_baptis_link) {
                             echo '<div class="form-group img_with_button">';
-                            echo '<center><img class="img img-responsive" src="'.$baris_data_surat_baptis->sk_baptis_link.'" width="20" height="20"></center>';
+                            echo '<center><img class="img img-responsive" src="'.base_url('img/').$baris_data_surat_baptis->sk_baptis_link.'" width="20" height="20"></center>';
                             echo "<a class='button btn btn-danger' data-toggle='modal' data-target='#hapus_link_gambar' data-href=".base_url('index.php/surat_baptis/hapus_link/'.$baris_data_surat_baptis->sk_baptis_id)."><i class='fas fa-trash'></i></a>";
 
                             echo '</div>';

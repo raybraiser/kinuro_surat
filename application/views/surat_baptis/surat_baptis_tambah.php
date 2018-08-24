@@ -67,7 +67,13 @@
 
             <div class="form-group">
                 <label>Dibaptis Oleh :</label>
-                <input type="text" class="form-control" name="surat_baptis_oleh" placeholder="Dibaptis Oleh" required="required">
+                <select class="form-control" name="surat_baptis_oleh">
+                    <?php
+                        foreach ($pendeta->result() as $baris) {
+                            echo '<option value="'.$baris->nama_pendeta.'" >'.$baris->nama_pendeta.'</option>';
+                        }
+                    ?>
+                </select>
             </div>
 
             <div class="form-group">

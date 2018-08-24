@@ -70,7 +70,7 @@ class Surat_masuk extends CI_Controller {
                         'sm_perihal' => $this->input->post('surat_masuk_perihal'), 
                         'sm_tanggal_masuk' => $this->input->post('surat_masuk_tanggal_masuk'), 
                         'sm_deskripsi' => $this->input->post('surat_masuk_deskripsi'), 
-                        'sm_link' => base_url() . 'img/' . $baris['file_name'] 
+                        'sm_link' => $baris['file_name'] 
                     );
                     $this->Model_surat_masuk->simpan($data);
                 }            
@@ -145,7 +145,7 @@ class Surat_masuk extends CI_Controller {
                         'sm_perihal' => $this->input->post('surat_masuk_perihal'), 
                         'sm_tanggal_masuk' => $this->input->post('surat_masuk_tanggal_masuk'), 
                         'sm_deskripsi' => $this->input->post('surat_masuk_deskripsi'), 
-                        'sm_link' => base_url() . 'img/' . $baris['file_name'], 
+                        'sm_link' => $baris['file_name'], 
                     );
                     $id = $this->input->post('id_sm');
                     $this->Model_surat_masuk->update($id, $data);
@@ -171,13 +171,14 @@ class Surat_masuk extends CI_Controller {
         foreach ($data->result() as $baris_data_sm_detail) {
 
             if ($baris_data_sm_detail->sm_link == '') {
-                $link_gambar = "<td>-</td>";   
+                $link_gambar = "<td>-</td>"; 
             } else {
                 $link_gambar = "<td>
-                <a href=".$baris_data_sm_detail->sm_link."><img src=".$baris_data_sm_detail->sm_link." class='img img-responsive'>
+                <a href='".base_url('img/').$baris_data_sm_detail->sm_link."'>
+                <img src=".base_url()."img/".$baris_data_sm_detail->sm_link." class='img img-responsive'>
+                </a>
                 </td>";                             
             }
-        
 
             echo "
                 <table class='table'>

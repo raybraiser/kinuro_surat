@@ -6,7 +6,8 @@ class Surat_sidi extends CI_Controller {
 	public function __construct(){
 		parent::__construct();		
 		$this->load->model('Model_surat_sidi');
-	}
+		$this->load->model('Model_pendeta');
+    }
 
     public function index()
     {
@@ -16,7 +17,8 @@ class Surat_sidi extends CI_Controller {
 
     public function tambah()
     {
-		$data['title'] = "Tambah Surat Baptis - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";        
+        $data['title'] = "Tambah Surat Baptis - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";
+        $data['pendeta'] = $this->Model_pendeta->ambil_pendeta();    
         $this->template->load('backend_template', 'surat_sidi/surat_sidi_tambah', $data);
     }
 
@@ -61,7 +63,7 @@ class Surat_sidi extends CI_Controller {
                         'sk_sidi_tanggal_lahir'     => $this->input->post('surat_sidi_tanggal_lahir'),
                         'sk_sidi_jenis_kelamin'     => $this->input->post('surat_sidi_jenis_kelamin'),
                         'sk_sidi_yang_meneguhkan'   => $this->input->post('surat_sidi_oleh'),
-                        'sk_sidi_link'              => base_url() . 'img/' . $baris['file_name']
+                        'sk_sidi_link'              => $baris['file_name']
                     );
                     $this->Model_surat_sidi->simpan($data);
                 }            
@@ -86,7 +88,8 @@ class Surat_sidi extends CI_Controller {
                 $link_gambar = "<td>-</td>";   
             } else {
                 $link_gambar = "<td>
-                <a href=".$baris_data_surat_sidi_detail->sk_sidi_link."><img src=".$baris_data_surat_sidi_detail->sk_sidi_link." class='img img-responsive'>
+                <a href='".base_url('img/').$baris_data_surat_sidi_detail->sk_sidi_link."'>
+                <img src=".base_url('img/').$baris_data_surat_sidi_detail->sk_sidi_link." class='img img-responsive'></a>
                 </td>";                             
             }            
 
@@ -152,6 +155,7 @@ class Surat_sidi extends CI_Controller {
         $hasil_surat_sidi = $this->Model_surat_sidi->edit($id)->num_rows();
         if ($hasil_surat_sidi > 0) {
             $data['data_ss'] = $this->Model_surat_sidi->edit($id);
+            $data['pendeta'] = $this->Model_pendeta->ambil_pendeta();  
             $data['title'] = "Edit Surat Sidi - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";        
             $this->template->load('backend_template', 'surat_sidi/surat_sidi_edit', $data);
         } else {
@@ -201,7 +205,7 @@ class Surat_sidi extends CI_Controller {
                         'sk_sidi_tanggal_lahir'     => $this->input->post('surat_sidi_tanggal_lahir'),
                         'sk_sidi_jenis_kelamin'     => $this->input->post('surat_sidi_jenis_kelamin'),
                         'sk_sidi_yang_meneguhkan'   => $this->input->post('surat_sidi_oleh'),
-                        'sk_sidi_link'              => base_url() . 'img/' . $baris['file_name']
+                        'sk_sidi_link'              => $baris['file_name']
                     );
                     $id = $this->input->post('sk_sidi_id');
                     $this->Model_surat_sidi->update($id, $data);

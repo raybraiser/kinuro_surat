@@ -115,6 +115,11 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+
+                        <li>
+                            <a href="<?php echo base_url('index.php/pendeta'); ?>"><i class="fas fa-users"></i> Data Pendeta</a>
+                        </li>
+
                         <li>
                             <a href="#"><i class="fas fa-cogs"></i> Pengaturan</a>
                             <ul class="nav nav-second-level">

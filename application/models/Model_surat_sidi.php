@@ -143,7 +143,4 @@ class Model_surat_sidi extends CI_Model {
             return $query;
         }        
     }
-
-
-
 }

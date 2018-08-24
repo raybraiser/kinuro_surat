@@ -61,7 +61,16 @@
         <div class="col-md-6 col-lg-6">
             <div class="form-group">
                 <label>Pendeta Yang Meneguhkan dan Menikahkan :</label>
-                <input type="text" class="form-control" name="surat_nikah_pendeta" placeholder="Yang Meneguhkan" value="<?php echo $baris_data_surat_nikah->sk_menikah_yang_meneguhkan; ?>" required="required">
+                <select class="form-control" name="surat_nikah_pendeta">
+                    <?php
+                        foreach ($pendeta->result() as $baris_pendeta) {
+                            if ($baris_data_surat_nikah->sk_menikah_yang_meneguhkan == $baris_pendeta->nama_pendeta)
+                            echo '<option value="'.$baris_pendeta->nama_pendeta.'" selected>'.$baris_pendeta->nama_pendeta.'</option>';
+                                else
+                            echo '<option value="'.$baris_pendeta->nama_pendeta.'">'.$baris_pendeta->nama_pendeta.'</option>';
+                        }
+                    ?>
+                  </select>
             </div>
 
             <div class="row">
@@ -69,7 +78,7 @@
                     <?php
                         if ($baris_data_surat_nikah->sk_menikah_link) {
                             echo '<div class="form-group img_with_button">';
-                            echo '<center><img class="img img-responsive" src="'.$baris_data_surat_nikah->sk_menikah_link.'" width="100" height="100"></center>';
+                            echo '<center><img class="img img-responsive" src="'.base_url('img/').$baris_data_surat_nikah->sk_menikah_link.'" width="100" height="100"></center>';
                             echo "<a class='button btn btn-danger' data-toggle='modal' data-target='#hapus_link_gambar' data-href=".base_url('index.php/surat_nikah/hapus_link/'.$baris_data_surat_nikah->sk_menikah_id)."><i class='fas fa-trash'></i></a>";
                             echo '</div>';
                         }

@@ -6,6 +6,7 @@ class Surat_baptis extends CI_Controller {
 	public function __construct(){
 		parent::__construct();		
 		$this->load->model('Model_surat_baptis');
+		$this->load->model('Model_pendeta');
 	}
 
     public function index()
@@ -16,7 +17,8 @@ class Surat_baptis extends CI_Controller {
 
     public function tambah()
     {
-		$data['title'] = "Tambah Surat Baptis - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";        
+        $data['title'] = "Tambah Surat Baptis - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";
+        $data['pendeta'] = $this->Model_pendeta->ambil_pendeta();          
         $this->template->load('backend_template', 'surat_baptis/surat_baptis_tambah', $data);
     }
 
@@ -65,7 +67,7 @@ class Surat_baptis extends CI_Controller {
                         'sk_baptis_nama_ayah'       => $this->input->post('surat_baptis_nama_ayah'),
                         'sk_baptis_nama_ibu'        => $this->input->post('surat_baptis_nama_ibu'),
                         'sk_baptis_yang_membaptis'  => $this->input->post('surat_baptis_oleh'),
-                        'sk_baptis_link'             => base_url() . 'img/' . $baris['file_name']
+                        'sk_baptis_link'             => $baris['file_name']
                     );
                     $this->Model_surat_baptis->simpan($data);
                 }            
@@ -90,7 +92,9 @@ class Surat_baptis extends CI_Controller {
                 $link_gambar = "<td>-</td>";
             } else {
                 $link_gambar = "<td>
-                <a href=".$baris_data_surat_baptis_detail->sk_baptis_link."><img src=".$baris_data_surat_baptis_detail->sk_baptis_link." class='img img-responsive'>
+                <a href='".base_url('img/').$baris_data_surat_baptis_detail->sk_baptis_link."'>
+                <img src=".base_url('img/').$baris_data_surat_baptis_detail->sk_baptis_link." class='img img-responsive'>
+                </a>
                 </td>";                             
             }
 
@@ -166,6 +170,7 @@ class Surat_baptis extends CI_Controller {
         $hasil_surat_baptis = $this->Model_surat_baptis->edit($id)->num_rows();
         if ($hasil_surat_baptis > 0) {
             $data['data_sb'] = $this->Model_surat_baptis->edit($id);
+            $data['pendeta'] = $this->Model_pendeta->ambil_pendeta();     
             $data['title'] = "Edit Surat Baptis - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";        
             $this->template->load('backend_template', 'surat_baptis/surat_baptis_edit', $data);
         } else {
@@ -218,7 +223,7 @@ class Surat_baptis extends CI_Controller {
                         'sk_baptis_nama_ayah'       => $this->input->post('surat_baptis_nama_ayah'),
                         'sk_baptis_nama_ibu'        => $this->input->post('surat_baptis_nama_ibu'),
                         'sk_baptis_yang_membaptis'  => $this->input->post('surat_baptis_oleh'),
-                        'sk_baptis_link'             => base_url() . 'img/' . $baris['file_name']
+                        'sk_baptis_link'             => $baris['file_name']
                     );
                     $id = $this->input->post('id_sb');                
                     $this->Model_surat_baptis->update($id, $data);

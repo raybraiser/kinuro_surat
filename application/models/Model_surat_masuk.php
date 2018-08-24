@@ -119,6 +119,10 @@ class Model_surat_masuk extends CI_Model {
         if (!$id) {
 			redirect(base_url("index.php/surat_masuk"));            
         } else {
+            // $ambil_path_gambar = $this->db->get_where('tbl_surat_masuk', array('sm_id' => $id));
+            // foreach ($ambil_path_gambar->result() as $baris) {
+            //     print_r($baris);
+            // }
             $query = $this->db->delete('tbl_surat_masuk', array('sm_id' => $id));
             if ($query) {
                 $query_status = array(

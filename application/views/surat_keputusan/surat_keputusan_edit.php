@@ -78,7 +78,7 @@ foreach ($data_keputusan->result() as $baris_data_keputusan) { ?>
                     <?php
                         if ($baris_data_keputusan->keputusan_link) {
                             echo '<div class="form-group img_with_button">';
-                            echo '<center><img class="img img-responsive" src="'.$baris_data_keputusan->keputusan_link.'" width="20" height="20"></center>';
+                            echo '<center><img class="img img-responsive" src="'.base_url('img/').$baris_data_keputusan->keputusan_link.'" width="20" height="20"></center>';
                             echo "<a class='button btn btn-danger' data-toggle='modal' data-target='#hapus_link_gambar' data-href=".base_url('index.php/surat_keputusan/hapus_link/'.$baris_data_keputusan->keputusan_id)."><i class='fas fa-trash'></i></a>";
                             echo '</div>';
                         }

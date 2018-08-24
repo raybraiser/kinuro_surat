@@ -9,5 +9,4 @@ class Dashboard extends CI_Controller {
 		$data['title'] = "Dashboard - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";        
         $this->template->load('backend_template', 'dashboard', $data);
     }
-
 }

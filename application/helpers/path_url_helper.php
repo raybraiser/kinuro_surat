@@ -11,3 +11,13 @@ if ( ! function_exists('path_img'))
         return $url;
     }   
 }
+
+if ( ! function_exists('hapus_gambar'))
+{
+    function hapus_gambar()
+    {
+        $upload_url = $this->config->item("upload_url");
+        $file = $upload_url.$nama_file;
+        
+    }   
+}

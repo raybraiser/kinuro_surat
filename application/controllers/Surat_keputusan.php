@@ -55,7 +55,7 @@ class Surat_keputusan extends CI_Controller {
                         'keputusan_untuk'         => $this->input->post('surat_keputusan_untuk'), 
                         'keputusan_perihal'       => $this->input->post('surat_keputusan_perihal'), 
                         'keputusan_deskripsi'     => $this->input->post('surat_keputusan_deskripsi'), 
-                        'keputusan_link'          => base_url() . 'img/' . $baris['file_name']
+                        'keputusan_link'          => $baris['file_name']
                     );
                     $this->Model_surat_keputusan->simpan($data);
                 }            
@@ -120,7 +120,7 @@ class Surat_keputusan extends CI_Controller {
                         'keputusan_untuk'         => $this->input->post('surat_keputusan_untuk'), 
                         'keputusan_perihal'       => $this->input->post('surat_keputusan_perihal'), 
                         'keputusan_deskripsi'     => $this->input->post('surat_keputusan_deskripsi'), 
-                        'keputusan_link'          => base_url() . 'img/' . $baris['file_name']
+                        'keputusan_link'          => $baris['file_name']
                     );
                     $id = $this->input->post('surat_keputusan_id');
                     $this->Model_surat_keputusan->update($id, $data);
@@ -149,7 +149,9 @@ class Surat_keputusan extends CI_Controller {
                 $link_gambar = "<td>-</td>";   
             } else {
                 $link_gambar = "<td>
-                <a href=".$baris_data_surat_keputusan_detail->keputusan_link."><img src=".$baris_data_surat_keputusan_detail->keputusan_link." class='img img-responsive'>
+                <a href='".base_url('img/').$baris_data_surat_keputusan_detail->keputusan_link."'>
+                <img src=".base_url('img/').$baris_data_surat_keputusan_detail->keputusan_link." class='img img-responsive'>
+                </a>
                 </td>";                             
             }
 

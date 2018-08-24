@@ -48,7 +48,16 @@
         <div class="col-md-6 col-lg-6">
             <div class="form-group">
                 <label>Pendeta Yang Meneguhkan dan Menikahkan :</label>
-                <input type="text" class="form-control" name="surat_nikah_pendeta" placeholder="Yang Meneguhkan" required="required">
+                <select class="form-control" name="surat_nikah_pendeta">
+                    <?php
+
+                        foreach ($pendeta->result() as $baris) {
+                            echo '<option value="'.$baris->nama_pendeta.'" >'.$baris->nama_pendeta.'</option>';
+                        }
+
+                    ?>
+                    
+                </select>
             </div>
 
             <div class="form-group">

@@ -63,7 +63,7 @@ class Surat_keterangan extends CI_Controller {
                         'sk_keterangan_jenis_kelamin'   => $this->input->post('jenis_kelamin_surat_keterangan'), 
                         'sk_keterangan_domisili_kolom'  => $this->input->post('kolom_surat_keterangan'), 
                         'sk_keterangan_deskripsi'       => $this->input->post('surat_keterangan_deskripsi'),  
-                        'sk_keterangan_link'            => base_url() . 'img/' . $baris['file_name']
+                        'sk_keterangan_link'            => $baris['file_name']
                     );
                     $this->Model_surat_keterangan->simpan($data);
                 }            
@@ -135,7 +135,7 @@ class Surat_keterangan extends CI_Controller {
                         'sk_keterangan_jenis_kelamin'   => $this->input->post('jenis_kelamin_surat_keterangan'), 
                         'sk_keterangan_domisili_kolom'  => $this->input->post('kolom_surat_keterangan'), 
                         'sk_keterangan_deskripsi'       => $this->input->post('surat_keterangan_deskripsi'),  
-                        'sk_keterangan_link'            => base_url() . 'img/' . $baris['file_name']
+                        'sk_keterangan_link'            => $baris['file_name']
                     );
                     $id = $this->input->post('surat_keterangan_id');
                     $this->Model_surat_keterangan->update($id, $data);
@@ -163,7 +163,9 @@ class Surat_keterangan extends CI_Controller {
                 $link_gambar = "<td>-</td>";   
             } else {
                 $link_gambar = "<td>
-                <a href=".$baris_data_surat_keterangan_detail->sk_keterangan_link."><img src=".$baris_data_surat_keterangan_detail->sk_keterangan_link." class='img img-responsive'>
+                <a href='".base_url('img/').$baris_data_surat_keterangan_detail->sk_keterangan_link."'>
+                <img src=".base_url('img/').$baris_data_surat_keterangan_detail->sk_keterangan_link." class='img img-responsive'>
+                </a>
                 </td>";                             
             }
 

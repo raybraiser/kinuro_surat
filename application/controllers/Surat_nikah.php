@@ -6,17 +6,19 @@ class Surat_nikah extends CI_Controller {
 	public function __construct(){
 		parent::__construct();		
 		$this->load->model('Model_surat_nikah');
+		$this->load->model('Model_pendeta');
 	}
 
     public function index()
     {
-		$data['title'] = "Surat Nikah - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";        
+        $data['title'] = "Surat Nikah - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";     
         $this->template->load('backend_template', 'surat_nikah/surat_nikah', $data);
     }
 
     public function tambah()
     {
-		$data['title'] = "Tambah Surat Nikah - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";        
+        $data['title'] = "Tambah Surat Nikah - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";
+        $data['pendeta'] = $this->Model_pendeta->ambil_pendeta();        
         $this->template->load('backend_template', 'surat_nikah/surat_nikah_tambah', $data);
     }
 
@@ -57,7 +59,7 @@ class Surat_nikah extends CI_Controller {
                         'sk_menikah_nama_pria'        => $this->input->post('surat_nikah_mempelai_pria'),
                         'sk_menikah_nama_wanita'      => $this->input->post('surat_nikah_mempelai_wanita'),
                         'sk_menikah_yang_meneguhkan'  => $this->input->post('surat_nikah_pendeta'),
-                        'sk_menikah_link'             => base_url() . 'img/' . $baris['file_name']
+                        'sk_menikah_link'             => $baris['file_name']
                     );
                     $this->Model_surat_nikah->simpan($data);
                 }            
@@ -82,8 +84,10 @@ class Surat_nikah extends CI_Controller {
                 $link_gambar = "<td>-</td>";   
             } else {
                 $link_gambar = "<td>
-                <a href=".$baris_data_surat_nikah_detail->sk_menikah_link."><img src=".$baris_data_surat_nikah_detail->sk_menikah_link." class='img img-responsive'>
-                </td>";                             
+                <a href='".base_url('img/').$baris_data_surat_nikah_detail->sk_menikah_link."'>
+                <img src=".base_url('img/').$baris_data_surat_nikah_detail->sk_menikah_link." class='img img-responsive'>
+                </a>
+                </td>";             
             }
 
             echo "
@@ -137,6 +141,7 @@ class Surat_nikah extends CI_Controller {
         $hasil_surat_nikah = $this->Model_surat_nikah->edit($id)->num_rows();
         if ($hasil_surat_nikah > 0) {
             $data['data_sn'] = $this->Model_surat_nikah->edit($id);
+            $data['pendeta'] = $this->Model_pendeta->ambil_pendeta();  
             $data['title'] = "Edit Surat Nikah - Aplikasi Sistem Informasi Surat GMIM Kineret Urongo";        
             $this->template->load('backend_template', 'surat_nikah/surat_nikah_edit', $data);
         } else {
@@ -180,7 +185,7 @@ class Surat_nikah extends CI_Controller {
                         'sk_menikah_nama_pria' => $this->input->post('surat_nikah_mempelai_pria'),
                         'sk_menikah_nama_wanita' => $this->input->post('surat_nikah_mempelai_wanita'),
                         'sk_menikah_yang_meneguhkan' => $this->input->post('surat_nikah_pendeta'),
-                        'sk_menikah_link'             => base_url() . 'img/' . $baris['file_name']
+                        'sk_menikah_link'             => $baris['file_name']
                     );
                     $id = $this->input->post('sk_menikah_id');
                     $this->Model_surat_nikah->update($id, $data);

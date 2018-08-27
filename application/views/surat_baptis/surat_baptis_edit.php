@@ -12,7 +12,7 @@
 <div class="row">
     
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h1 class="page-header"><i class="fas fa-edit"></i> Edit Surat Nikah</h1>
+        <h1 class="page-header"><i class="fas fa-edit"></i> Edit Surat Baptis</h1>
     </div>
 </div>
 
@@ -84,7 +84,7 @@
                 <select class="form-control" name="surat_baptis_oleh">
                     <?php
                         foreach ($pendeta->result() as $baris_pendeta) {
-                            if ($baris_data_surat_nikah->sk_baptis_yang_membaptis == $baris_pendeta->nama_pendeta)
+                            if ($baris_data_surat_baptis->sk_baptis_yang_membaptis == $baris_pendeta->nama_pendeta)
                             echo '<option value="'.$baris_pendeta->nama_pendeta.'" selected>'.$baris_pendeta->nama_pendeta.'</option>';
                                 else
                             echo '<option value="'.$baris_pendeta->nama_pendeta.'">'.$baris_pendeta->nama_pendeta.'</option>';
